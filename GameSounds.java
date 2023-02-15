@@ -23,19 +23,19 @@ public class GameSounds{
         try{
             // Pacman eating sound
             url = this.getClass().getClassLoader().getResource("sounds/nomnom.wav");
-            audioIn = AudioSystem.getAudioInputStream(url);
+            audioIn = AudioSystem.getAudioInputStream(new File ("sounds/nomnom.wav"));
             nomNom = AudioSystem.getClip();
             nomNom.open(audioIn);
             
-            // newGame        
+            // newGame
             url = this.getClass().getClassLoader().getResource("sounds/newGame.wav");
-            audioIn = AudioSystem.getAudioInputStream(url);
+            audioIn = AudioSystem.getAudioInputStream(new File ("sounds/newGame.wav"));
             newGame = AudioSystem.getClip();
             newGame.open(audioIn);
             
             // death        
             url = this.getClass().getClassLoader().getResource("sounds/death.wav");
-            audioIn = AudioSystem.getAudioInputStream(url);
+            audioIn = AudioSystem.getAudioInputStream(new File ("sounds/death.wav"));
             death = AudioSystem.getClip();
             death.open(audioIn);
 
