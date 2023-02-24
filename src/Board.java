@@ -1,7 +1,6 @@
 package src;/* Drew Schuster */
 import java.awt.*;
 import javax.swing.JPanel;
-import java.lang.Math;
 import java.util.*;
 import java.io.*;
 
@@ -44,10 +43,7 @@ class Mover
   {
     for(int i =0;i<20;i++)
     {
-      for(int j=0;j<20;j++)
-      {
-        this.state[i][j] = state[i][j];
-      }
+      System.arraycopy(state[i], 0, this.state[i], 0, 20);
     }
   }
 
