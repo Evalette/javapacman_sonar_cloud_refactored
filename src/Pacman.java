@@ -81,7 +81,7 @@ public class Pacman implements MouseListener, KeyListener
   }
 
   /* Steps the screen forward one frame */
-  public void stepFrame(boolean New)
+  public void stepFrame(boolean newGame)
   {
     /* If we aren't on a special screen than the timers can be set to -1 to disable them */
     if (!b.titleScreen && !b.winScreen && !b.overScreen)
@@ -99,7 +99,7 @@ public class Pacman implements MouseListener, KeyListener
 
     /* New can either be specified by the New parameter in stepFrame function call or by the state
        of b.New.  Update New accordingly */ 
-    New = New || (b.newGame !=0) ;
+    newGame = newGame || (b.newGame !=0) ;
 
     /* If this is the title screen, make sure to only stay on the title screen for 5 seconds.
        If after 5 seconds the user hasn't started a game, start up demo mode */
@@ -144,7 +144,7 @@ public class Pacman implements MouseListener, KeyListener
 
 
     /* If we have a normal game state, move all pieces and update pellet status */
-    if (!New)
+    if (!newGame)
     {
       /* The pacman player has two functions, demoMove if we're in demo mode and move if we're in
          user playable mode.  Call the appropriate one here */
@@ -170,7 +170,7 @@ public class Pacman implements MouseListener, KeyListener
     }
 
     /* We either have a new game or the user has died, either way we have to reset the board */
-    if (b.stopped || New)
+    if (b.stopped || newGame)
     {
       /*Temporarily stop advancing frames */
       frameTimer.stop();
