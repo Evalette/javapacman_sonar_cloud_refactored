@@ -2,7 +2,6 @@ package src;/* Drew Schuster */
 
 import javax.swing.*;
 import java.awt.event.*;
-import javax.swing.JApplet;
 import java.awt.*;
 
 /* This class contains the entire game... most of the game logic is in the src.Board class but this
