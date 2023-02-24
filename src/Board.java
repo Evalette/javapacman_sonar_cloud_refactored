@@ -107,7 +107,6 @@ class Player extends Mover
   { 
      int random;
      char backwards='U';
-     int newX=x;
      int newY=y;
      int lookX=x,lookY=y;
      Set<Character> set = new HashSet<Character>();
