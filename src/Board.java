@@ -356,7 +356,8 @@ class Ghost extends Mover
   /* update pellet status */
   public void updatePellet()
   {
-    int tempX,tempY;
+    int tempX;
+    int tempY;
     tempX = x/gridSize-1;
     tempY = y/gridSize-1;
     if (tempX != pelletX || tempY != pelletY)
