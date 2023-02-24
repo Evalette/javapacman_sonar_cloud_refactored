@@ -382,7 +382,6 @@ class Ghost extends Mover
     int random;
     char backwards='U';
     int newX=x;
-    int newY=y;
     int lookX=x,lookY=y;
     Set<Character> set = new HashSet<Character>();
     switch(direction)
@@ -413,7 +412,6 @@ class Ghost extends Mover
       }
 
       newX=x;
-      newY=y;
       lookX=x;
       lookY=y;
       
@@ -434,13 +432,11 @@ class Ghost extends Mover
       else if (random == 3)
       {
         newDirection = 'U';
-        newY-=increment; 
         lookY-=increment;
       }
       else if (random == 4)
       {
         newDirection = 'D';
-        newY+=increment; 
         lookY+=gridSize;
       }
       if (newDirection != backwards)
