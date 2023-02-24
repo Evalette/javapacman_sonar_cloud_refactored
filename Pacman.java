@@ -1,13 +1,13 @@
 /* Drew Schuster */
+import src.Board;
+
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.geom.Point2D;
 import javax.swing.JApplet;
 import java.awt.*;
-import java.util.*;
 import java.lang.*;
 
-/* This class contains the entire game... most of the game logic is in the Board class but this
+/* This class contains the entire game... most of the game logic is in the src.Board class but this
    creates the gui and captures mouse and keyboard input, as well as controls the game states */
 public class Pacman extends JApplet implements MouseListener, KeyListener
 { 
@@ -17,7 +17,7 @@ public class Pacman extends JApplet implements MouseListener, KeyListener
   long timer = -1;
 
   /* Create a new board */
-  Board b=new Board(); 
+  Board b=new Board();
 
   /* This timer is used to do request new frames be drawn*/
   javax.swing.Timer frameTimer;

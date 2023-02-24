@@ -1,13 +1,12 @@
-/* Drew Schuster */
+package src;/* Drew Schuster */
 import java.awt.*;
-import javax.imageio.*;
 import javax.swing.JPanel;
 import java.lang.Math;
 import java.util.*;
 import java.io.*;
 
 
-/* Both Player and Ghost inherit Mover.  Has generic functions relevant to both*/
+/* Both src.Player and src.Ghost inherit src.Mover.  Has generic functions relevant to both*/
 class Mover
 {
   /* Framecount is used to count animation frames*/
@@ -111,7 +110,7 @@ class Player extends Mover
   }
 
 
-  /* This function is used for demoMode.  It is copied from the Ghost class.  See that for comments */
+  /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
   public char newDirection()
   { 
      int random;
@@ -179,7 +178,7 @@ class Player extends Mover
      return newDirection;
   }
 
-  /* This function is used for demoMode.  It is copied from the Ghost class.  See that for comments */
+  /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
   public boolean isChoiceDest()
   {
     if (  x%gridSize==0&& y%gridSize==0 )
@@ -189,7 +188,7 @@ class Player extends Mover
     return false;
   }
 
-  /* This function is used for demoMode.  It is copied from the Ghost class.  See that for comments */
+  /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
   public void demoMove()
   {
     lastX=x;
@@ -335,7 +334,7 @@ class Player extends Mover
   } 
 }
 
-/* Ghost class controls the ghost. */
+/* src.Ghost class controls the ghost. */
 class Ghost extends Mover
 { 
   /* Direction ghost is heading */
