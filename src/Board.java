@@ -381,7 +381,8 @@ class Ghost extends Mover
   { 
     int random;
     char backwards='U';
-    int lookX=x,lookY=y;
+    int lookX=x;
+    int lookY=y;
     Set<Character> set = new HashSet<Character>();
     switch(direction)
     {
