@@ -135,7 +135,8 @@ class Player extends Mover
        }
        lookX=x;
        lookY=y;
-       random = (int)(Math.random()*4) + 1;
+       Random r = new Random();
+       random = (r.nextInt() *4) + 1;
        if (random == 1)
        {
          newDirection = 'L';
