@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.JApplet;
 import java.awt.*;
-import java.lang.*;
 
 /* This class contains the entire game... most of the game logic is in the src.Board class but this
    creates the gui and captures mouse and keyboard input, as well as controls the game states */
