@@ -133,7 +133,6 @@ class Player extends Mover
          newDirection=backwards;
          break;
        }
-       newX=x;
        newY=y;
        lookX=x;
        lookY=y;
@@ -141,13 +140,11 @@ class Player extends Mover
        if (random == 1)
        {
          newDirection = 'L';
-         newX-=increment; 
          lookX-= increment;
        }
        else if (random == 2)
        {
          newDirection = 'R';
-         newX+=increment; 
          lookX+= gridSize;
        }
        else if (random == 3)
