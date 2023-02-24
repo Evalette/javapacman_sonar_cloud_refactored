@@ -157,7 +157,7 @@ class Player extends Mover
          newDirection = 'D';
          lookY+=gridSize;
        }
-       if (newDirection != backwards)
+       if (((Character) newDirection).equals(backwards))
        {
          set.add(newDirection);
        }
@@ -168,11 +168,7 @@ class Player extends Mover
   /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
   public boolean isChoiceDest()
   {
-    if (  x%gridSize==0&& y%gridSize==0 )
-    {
-      return true;
-    }
-    return false;
+    return x % gridSize == 0 && y % gridSize == 0;
   }
 
   /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
