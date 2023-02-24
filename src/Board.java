@@ -107,8 +107,7 @@ class Player extends Mover
   { 
      int random;
      char backwards='U';
-     int newY=y;
-     int lookX=x,lookY=y;
+    int lookX=x,lookY=y;
      Set<Character> set = new HashSet<Character>();
     switch(direction)
     {
@@ -133,7 +132,6 @@ class Player extends Mover
          newDirection=backwards;
          break;
        }
-       newY=y;
        lookX=x;
        lookY=y;
        random = (int)(Math.random()*4) + 1;
@@ -150,13 +148,11 @@ class Player extends Mover
        else if (random == 3)
        {
          newDirection = 'U';
-         newY-=increment; 
          lookY-=increment;
        }
        else if (random == 4)
        {
          newDirection = 'D';
-         newY+=increment; 
          lookY+=gridSize;
        }
        if (newDirection != backwards)
