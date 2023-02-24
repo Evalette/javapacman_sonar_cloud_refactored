@@ -336,7 +336,8 @@ class Ghost extends Mover
   int pelletY;
 
   /* The pellet the ghost was last on top of */
-  int lastPelletX,lastPelletY;
+  int lastPelletX;
+  int lastPelletY;
 
   /*Constructor places ghost and updates states*/
   public Ghost(int x, int y)
