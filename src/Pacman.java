@@ -1,5 +1,4 @@
-/* Drew Schuster */
-import src.Board;
+package src;/* Drew Schuster */
 
 import javax.swing.*;
 import java.awt.event.*;

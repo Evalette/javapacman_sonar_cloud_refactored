@@ -21,7 +21,7 @@ public class GameSounds{
         AudioInputStream audioIn;
         
         try{
-            // Pacman eating sound
+            // src.Pacman eating sound
             url = this.getClass().getClassLoader().getResource("sounds/nomnom.wav");
             audioIn = AudioSystem.getAudioInputStream(new File ("sounds/nomnom.wav"));
             nomNom = AudioSystem.getClip();

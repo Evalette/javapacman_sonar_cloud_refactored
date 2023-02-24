@@ -21,7 +21,7 @@ sonarqube {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-mainClassName = 'Pacman'
+mainClassName = 'src.Pacman'
 
 sourceSets{
     main {
