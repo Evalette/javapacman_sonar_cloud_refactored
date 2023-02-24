@@ -415,7 +415,8 @@ class Ghost extends Mover
       lookY=y;
       
       /* Randomly choose a direction */
-      random = (int)(Math.random()*4) + 1;
+      Random r = new Random();
+      random = (r.nextInt()*4) + 1;
       if (random == 1)
       {
         newDirection = 'L';
