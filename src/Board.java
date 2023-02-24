@@ -561,7 +561,7 @@ public class Board extends JPanel
   boolean winScreen = false;
   boolean overScreen = false;
   boolean demo = false;
-  int New;
+  int newGame;
 
   /* Used to call sound effects */
   GameSounds sounds;
@@ -581,7 +581,7 @@ public class Board extends JPanel
     stopped=false;
     max=400;
     gridSize=20;
-    New=0;
+    newGame =0;
     titleScreen = true;
   }
 
@@ -912,7 +912,7 @@ public class Board extends JPanel
 
       /* Stop any pacman eating sounds */
       sounds.nomNomStop();
-      New = 1;
+      newGame = 1;
       return;
     } 
 
@@ -922,7 +922,7 @@ public class Board extends JPanel
       g.setColor(Color.BLACK);
       g.fillRect(0,0,600,600);
       g.drawImage(winScreenImage,0,0,Color.BLACK,null);
-      New = 1;
+      newGame = 1;
       /* Stop any pacman eating sounds */
       sounds.nomNomStop();
       return;
@@ -934,7 +934,7 @@ public class Board extends JPanel
       g.setColor(Color.BLACK);
       g.fillRect(0,0,600,600);
       g.drawImage(gameOverImage,0,0,Color.BLACK,null);
-      New = 1;
+      newGame = 1;
       /* Stop any pacman eating sounds */
       sounds.nomNomStop();
       return;
@@ -958,7 +958,7 @@ public class Board extends JPanel
     boolean oops=false;
     
     /* Game initialization */
-    if (New==1)
+    if (newGame ==1)
     {
       reset();
       player = new Player(200,300);
@@ -986,30 +986,30 @@ public class Board extends JPanel
         g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
       else
         g.drawString("Score: "+(currScore)+"\t High Score: "+highScore,20,10);
-      New++;
+      newGame++;
     }
     /* Second frame of new game */
-    else if (New == 2)
+    else if (newGame == 2)
     {
-      New++;
+      newGame++;
     }
     /* Third frame of new game */
-    else if (New == 3)
+    else if (newGame == 3)
     {
-      New++;
+      newGame++;
       /* Play the newGame sound effect */
       sounds.newGame();
       timer = System.currentTimeMillis();
       return;
     }
     /* Fourth frame of new game */
-    else if (New == 4)
+    else if (newGame == 4)
     {
       /* Stay in this state until the sound effect is over */
       long currTime = System.currentTimeMillis();
       if (currTime - timer >= 5000)
       {
-        New=0;
+        newGame =0;
       }
       else
         return;
@@ -1069,7 +1069,7 @@ public class Board extends JPanel
     g.fillRect(ghost4.lastX,ghost4.lastY,20,20);
 
     /* Eat pellets */
-    if ( pellets[player.pelletX][player.pelletY] && New!=2 && New !=3)
+    if ( pellets[player.pelletX][player.pelletY] && newGame !=2 && newGame !=3)
     {
       lastPelletEatenX = player.pelletX;
       lastPelletEatenY = player.pelletY;
