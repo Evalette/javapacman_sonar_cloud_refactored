@@ -159,7 +159,7 @@ class Player extends Mover
        }
        if (newDirection != backwards)
        {
-         set.add(new Character(newDirection));
+         set.add(newDirection);
        }
      } 
      return newDirection;
