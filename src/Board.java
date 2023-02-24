@@ -383,7 +383,7 @@ class Ghost extends Mover
     char backwards='U';
     int lookX=x;
     int lookY=y;
-    Set<Character> set = new HashSet<Character>();
+    Set<Character> set = new HashSet<>();
     switch(direction)
     {
       case 'L':
