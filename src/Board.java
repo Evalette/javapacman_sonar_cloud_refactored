@@ -332,7 +332,8 @@ class Ghost extends Mover
   int y;
 
   /* The pellet the ghost is on top of */
-  int pelletX,pelletY;
+  int pelletX;
+  int pelletY;
 
   /* The pellet the ghost was last on top of */
   int lastPelletX,lastPelletY;
