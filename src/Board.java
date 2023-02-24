@@ -437,9 +437,9 @@ class Ghost extends Mover
         newDirection = 'D';
         lookY+=gridSize;
       }
-      if (newDirection != backwards)
+      if (((Character) newDirection).equals(backwards));
       {
-        set.add(new Character(newDirection));
+        set.add(newDirection);
       }
     } 
     return newDirection;
