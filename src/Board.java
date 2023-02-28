@@ -84,6 +84,7 @@ class Player extends Mover
   
   /* Stopped is set when the pacman is not moving or has been killed */
   boolean stopped = false;
+  private Random r = new Random();
 
   /* Constructor places pacman in initial location and orientation */
   public Player(int x, int y)
@@ -103,7 +104,7 @@ class Player extends Mover
 
 
   /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
-  public char newDirection(Random r)
+  public char newDirection()
   {
     char backwards='U';
      int lookX=x;
@@ -179,7 +180,7 @@ class Player extends Mover
     lastY=y;
     if (isChoiceDest())
     {
-      direction = newDirection(new Random());
+      direction = newDirection();
     }
     switch(direction)
     {
@@ -359,6 +360,8 @@ class Ghost extends Mover
   /* The pellet the ghost was last on top of */
   int lastPelletX;
   int lastPelletY;
+  private int random;
+  private Random r = new Random();
 
   /*Constructor places ghost and updates states*/
   public Ghost(int x, int y)
@@ -399,8 +402,7 @@ class Ghost extends Mover
 
   /* Chooses a new direction randomly for the ghost to move */
   public char newDirection()
-  { 
-    int random;
+  {
     char backwards='U';
     int lookX=x;
     int lookY=y;
@@ -439,7 +441,7 @@ class Ghost extends Mover
       lookY=y;
       
       /* Randomly choose a direction */
-      Random r = new Random();
+
       random = (r.nextInt()*4) + 1;
       if (random == 1)
       {
