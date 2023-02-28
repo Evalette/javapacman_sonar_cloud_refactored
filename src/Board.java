@@ -212,7 +212,10 @@ class Player extends Mover
       case 'D':
          if ( isValidDest(x,y+gridSize))
            y+= increment;
-         break;     
+         break;
+      default: {
+
+      }
     }
     currDirection = direction;
     frameCount ++;
