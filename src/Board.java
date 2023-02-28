@@ -589,15 +589,10 @@ public class Board extends JPanel
   public void initHighScores()
   {
     File file = new File("highScores.txt");
-    Scanner sc;
-    try
-    {
-        sc = new Scanner(file);
-        highScore = sc.nextInt();
-        sc.close();
-    }
-    catch(Exception e)
-    {
+
+    try (Scanner sc = new Scanner(file)) {
+      highScore = sc.nextInt();
+    } catch (FileNotFoundException ignored) {
     }
   }
 
