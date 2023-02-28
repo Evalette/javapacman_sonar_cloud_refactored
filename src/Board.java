@@ -391,7 +391,6 @@ class Ghost extends Mover
       pelletX=tempX;
       pelletY = tempY;
     }
-     
   } 
  
   /* Determines if the location is one where the ghost has to make a decision*/ 
@@ -513,6 +512,7 @@ class Ghost extends Mover
 /*This board class contains the player, ghosts, pellets, and most of the game logic.*/
 public class Board extends JPanel
 {
+  public static final String HIGH_SCORES_TXT = "highScores.txt";
   /* Initialize the images*/
   /* For JAR File*/
   /*
@@ -617,7 +617,7 @@ public class Board extends JPanel
   /* Reads the high scores file and saves it */
   public void initHighScores()
   {
-    File file = new File("highScores.txt");
+    File file = new File(HIGH_SCORES_TXT);
 
     try (Scanner sc = new Scanner(file)) {
       highScore = sc.nextInt();
@@ -628,7 +628,7 @@ public class Board extends JPanel
   /* Writes the new high score to a file and sets flag to update it on screen */
   public void updateScore(int score)
   {
-    try(PrintWriter out = new PrintWriter("highScores.txt"))
+    try(PrintWriter out = new PrintWriter(HIGH_SCORES_TXT))
     {
       out.println(score);
     }
@@ -642,7 +642,7 @@ public class Board extends JPanel
   /* Wipes the high scores file and sets flag to update it on screen */
   public void clearHighScores()
   {
-    try (PrintWriter  out = new PrintWriter("highScores.txt"))
+    try (PrintWriter  out = new PrintWriter(HIGH_SCORES_TXT))
     {
       out.println("0");
     }
