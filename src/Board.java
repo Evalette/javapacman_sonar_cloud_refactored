@@ -613,15 +613,12 @@ public class Board extends JPanel
   /* Wipes the high scores file and sets flag to update it on screen */
   public void clearHighScores()
   {
-    PrintWriter out;
-    try
+    try (PrintWriter  out = new PrintWriter("highScores.txt"))
     {
-      out = new PrintWriter("highScores.txt");
       out.println("0");
-      out.close();
     }
-    catch(Exception e)
-    {
+    catch(Exception e) {
+      throw new RuntimeException(e);
     }
     highScore=0;
     clearHighScores=true;
