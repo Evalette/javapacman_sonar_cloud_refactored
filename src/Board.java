@@ -230,66 +230,14 @@ class Player extends Mover
      
     /* Try to turn in the direction input by the user */
     /*Can only turn if we're in center of a grid*/
-    if (x %20==0 && y%20==0 ||
-       /* Or if we're reversing*/
-       (desiredDirection=='L' && currDirection=='R')  ||
-       (desiredDirection=='R' && currDirection=='L')  ||
-       (desiredDirection=='U' && currDirection=='D')  ||
-       (desiredDirection=='D' && currDirection=='U')
-       )
+    if (inTheCenterOfAGrid())
     {
-      switch(desiredDirection)
-      {
-        case 'L':
-           if ( isValidDest(x-increment,y))
-             x -= increment;
-           break;     
-        case 'R':
-           if ( isValidDest(x+gridSize,y))
-             x+= increment;
-           break;     
-        case 'U':
-           if ( isValidDest(x,y-increment))
-             y-= increment;
-           break;     
-        case 'D':
-           if ( isValidDest(x,y+gridSize))
-             y+= increment;
-           break;     
-      }
+      moveToDesiredDirection(gridSize);
     }
     /* If we haven't moved, then move in the direction the pacman was headed anyway */
     if (lastX==x && lastY==y)
     {
-      switch(currDirection)
-      {
-        case 'L':
-           if ( isValidDest(x-increment,y))
-             x -= increment;
-           else if (y == 9*gridSize && x < 2 * gridSize)
-           {
-             x = max - gridSize*1;
-             teleport = true; 
-           }
-           break;     
-        case 'R':
-           if ( isValidDest(x+gridSize,y))
-             x+= increment;
-           else if (y == 9*gridSize && x > max - gridSize*2)
-           {
-             x = 1*gridSize;
-             teleport=true;
-           }
-           break;     
-        case 'U':
-           if ( isValidDest(x,y-increment))
-             y-= increment;
-           break;     
-        case 'D':
-           if ( isValidDest(x,y+gridSize))
-             y+= increment;
-           break;     
-      }
+      moveToCurrentDirection(gridSize);
     }
 
     /* If we did change direction, update currDirection to reflect that */
@@ -308,6 +256,69 @@ class Player extends Mover
       stopped=false;
       frameCount ++;
     }
+  }
+
+  private void moveToCurrentDirection(int gridSize) {
+    switch(currDirection)
+    {
+      case 'L':
+         if ( isValidDest(x-increment,y))
+           x -= increment;
+         else if (y == 9* gridSize && x < 2 * gridSize)
+         {
+           x = max - gridSize *1;
+           teleport = true;
+         }
+         break;
+      case 'R':
+         if ( isValidDest(x+ gridSize,y))
+           x+= increment;
+         else if (y == 9* gridSize && x > max - gridSize *2)
+         {
+           x = 1* gridSize;
+           teleport=true;
+         }
+         break;
+      case 'U':
+         if ( isValidDest(x,y-increment))
+           y-= increment;
+         break;
+      case 'D':
+         if ( isValidDest(x,y+ gridSize))
+           y+= increment;
+         break;
+    }
+  }
+
+  private void moveToDesiredDirection(int gridSize) {
+    switch(desiredDirection)
+    {
+      case 'L':
+         if ( isValidDest(x-increment,y))
+           x -= increment;
+         break;
+      case 'R':
+         if ( isValidDest(x+ gridSize,y))
+           x+= increment;
+         break;
+      case 'U':
+         if ( isValidDest(x,y-increment))
+           y-= increment;
+         break;
+      case 'D':
+         if ( isValidDest(x,y+ gridSize))
+           y+= increment;
+         break;
+    }
+  }
+
+  private boolean inTheCenterOfAGrid() {
+    return x % 20 == 0 && y % 20 == 0 ||
+            /* Or if we're reversing*/
+            (desiredDirection == 'L' && currDirection == 'R') ||
+            (desiredDirection == 'R' && currDirection == 'L') ||
+            (desiredDirection == 'U' && currDirection == 'D') ||
+            (desiredDirection == 'D' && currDirection == 'U');
   }
 
   /* Update what pellet the pacman is on top of */
