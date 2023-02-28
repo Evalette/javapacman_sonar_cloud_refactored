@@ -123,7 +123,10 @@ class Player extends Mover
          break;     
       case 'D':
          backwards='U';
-         break;     
+         break;
+      default: {
+
+      }
     }
      char newDirection = backwards;
      while (newDirection == backwards || !isValidDest(lookX,lookY))
