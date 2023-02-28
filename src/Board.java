@@ -418,7 +418,10 @@ class Ghost extends Mover
          break;     
       case 'D':
          backwards='U';
-         break;     
+         break;
+      default: {
+
+      }
     }
 
     char newDirection = backwards;
