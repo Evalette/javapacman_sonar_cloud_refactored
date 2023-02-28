@@ -599,15 +599,12 @@ public class Board extends JPanel
   /* Writes the new high score to a file and sets flag to update it on screen */
   public void updateScore(int score)
   {
-    PrintWriter out;
-    try
+    try(PrintWriter out = new PrintWriter("highScores.txt"))
     {
-      out = new PrintWriter("highScores.txt");
       out.println(score);
-      out.close();
     }
-    catch(Exception e)
-    {
+    catch(Exception e) {
+      throw new RuntimeException(e);
     }
     highScore=score;
     clearHighScores=true;
