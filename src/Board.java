@@ -847,7 +847,7 @@ public class Board extends JPanel
           for (int j=1;j<20;j++)
           {
             if ( pellets[i-1][j-1])
-            g.fillOval(i*20+8,j*20+8,4,4);
+              g.fillOval(i*20+8,j*20+8,4,4);
           }
         }
   }
