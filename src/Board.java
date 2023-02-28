@@ -570,7 +570,7 @@ public class Board extends JPanel
   int lastPelletEatenY=0;
 
   /* This is the font used for the menus */
-  Font font = new Font("Monospaced",Font.BOLD, 12);
+  Font menuFont = new Font("Monospaced",Font.BOLD, 12);
 
   /* Constructor initializes state flags etc.*/
   public Board() 
@@ -702,7 +702,7 @@ public class Board extends JPanel
     }
     /* Draw the menu items */
     g.setColor(Color.YELLOW);
-    g.setFont(font);
+    g.setFont(menuFont);
     g.drawString("Reset",100,max+5+gridSize);
     g.drawString("Clear High Scores",180,max+5+gridSize);
     g.drawString("Exit",350,max+5+gridSize);
@@ -946,7 +946,7 @@ public class Board extends JPanel
       g.setColor(Color.BLACK);
       g.fillRect(0,0,600,18);
       g.setColor(Color.YELLOW);
-      g.setFont(font);
+      g.setFont(menuFont);
       clearHighScores= false;
       if (demo)
         g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
@@ -981,7 +981,7 @@ public class Board extends JPanel
    
       /* Draw the top menu bar*/
       g.setColor(Color.YELLOW);
-      g.setFont(font);
+      g.setFont(menuFont);
       if (demo)
         g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
       else
@@ -1090,7 +1090,7 @@ public class Board extends JPanel
       g.setColor(Color.BLACK);
       g.fillRect(0,0,600,20);
       g.setColor(Color.YELLOW);
-      g.setFont(font);
+      g.setFont(menuFont);
       if (demo)
         g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
       else
