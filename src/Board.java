@@ -84,7 +84,6 @@ class Player extends Mover
   
   /* Stopped is set when the pacman is not moving or has been killed */
   boolean stopped = false;
-  private int random;
 
   /* Constructor places pacman in initial location and orientation */
   public Player(int x, int y)
@@ -138,7 +137,7 @@ class Player extends Mover
        }
        lookX=x;
        lookY=y;
-       random = (r.nextInt() *4) + 1;
+       int random = (r.nextInt() * 4) + 1;
        if (random == 1)
        {
          newDirection = 'L';
