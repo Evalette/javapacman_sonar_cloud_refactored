@@ -501,7 +501,10 @@ class Ghost extends Mover
       case 'D':
          if ( isValidDest(x,y+gridSize))
            y+= increment;
-         break;     
+         break;
+      default: {
+
+      }
     }
   }
 }
