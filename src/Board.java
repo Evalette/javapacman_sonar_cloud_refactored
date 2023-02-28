@@ -84,7 +84,7 @@ class Player extends Mover
   
   /* Stopped is set when the pacman is not moving or has been killed */
   boolean stopped = false;
-  private Random r;
+  private int random;
 
   /* Constructor places pacman in initial location and orientation */
   public Player(int x, int y)
@@ -105,9 +105,8 @@ class Player extends Mover
 
   /* This function is used for demoMode.  It is copied from the src.Ghost class.  See that for comments */
   public char newDirection(Random r)
-  { 
-     int random;
-     char backwards='U';
+  {
+    char backwards='U';
      int lookX=x;
      int lookY=y;
      Set<Character> set = new HashSet<>();
