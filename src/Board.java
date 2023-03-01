@@ -604,7 +604,7 @@ public class Board extends JPanel
       out.println(score);
     }
     catch(Exception e) {
-      throw new RuntimeException(e.getMessage());
+      e.printStackTrace();
     }
     highScore=score;
     clearHighScores=true;
@@ -618,7 +618,7 @@ public class Board extends JPanel
       out.println("0");
     }
     catch(Exception e) {
-      throw new RuntimeException(e.getMessage());
+      e.printStackTrace();
     }
     highScore=0;
     clearHighScores=true;
