@@ -411,6 +411,7 @@ class Ghost extends Mover
       case 'D':
          backwards='U';
          break;
+      default:
     }
 
     char newDirection = backwards;
@@ -430,25 +431,24 @@ class Ghost extends Mover
       /* Randomly choose a direction */
 
       int random = (r.nextInt() * 4) + 1;
-      if (random == 1)
-      {
-        newDirection = 'L';
-        lookX-= increment;
-      }
-      else if (random == 2)
-      {
-        newDirection = 'R';
-        lookX+= gridSize;
-      }
-      else if (random == 3)
-      {
-        newDirection = 'U';
-        lookY-=increment;
-      }
-      else if (random == 4)
-      {
-        newDirection = 'D';
-        lookY+=gridSize;
+      switch (random) {
+        case 1:
+          newDirection = 'L';
+          lookX -= increment;
+          break;
+        case 2:
+          newDirection = 'R';
+          lookX += gridSize;
+          break;
+        case 3:
+          newDirection = 'U';
+          lookY -= increment;
+          break;
+        case 4:
+          newDirection = 'D';
+          lookY += gridSize;
+          break;
+        default:
       }
       if (((Character) newDirection).equals(backwards))
       {
@@ -504,26 +504,7 @@ public class Board extends JPanel
   public static final String DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE = "DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: ";
   public static final String HIGH_SCORE = "\t High Score: ";
   public static final String SCORE = "Score: ";
-  /* Initialize the images*/
-  /* For JAR File*/
-  /*
-  Image pacmanImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/pacman.jpg"));
-  Image pacmanUpImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/pacmanup.jpg"));
-  Image pacmanDownImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/pacmandown.jpg"));
-  Image pacmanLeftImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/pacmanleft.jpg"));
-  Image pacmanRightImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/pacmanright.jpg"));
-  Image ghost10 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost10.jpg"));
-  Image ghost20 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost20.jpg"));
-  Image ghost30 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost30.jpg"));
-  Image ghost40 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost40.jpg"));
-  Image ghost11 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost11.jpg"));
-  Image ghost21 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost21.jpg"));
-  Image ghost31 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost31.jpg"));
-  Image ghost41 = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/ghost41.jpg"));
-  Image titleScreenImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/titleScreen.jpg"));
-  Image gameOverImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/gameOver.jpg"));
-  Image winScreenImage = Toolkit.getDefaultToolkit().getImage(src.Pacman.class.getResource("img/winScreen.jpg"));
-  */
+
   /* For NOT JAR file*/
   private Image pacmanImage = Toolkit.getDefaultToolkit().getImage("img/pacman.jpg");
   private Image pacmanUpImage = Toolkit.getDefaultToolkit().getImage("img/pacmanup.jpg");
