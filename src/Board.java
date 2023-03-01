@@ -831,6 +831,7 @@ public class Board extends JPanel
   }
 
   /* This is the main function that draws one entire frame of the game */
+  @Override
   public void paint(Graphics g)
   {
     /* If we're playing the dying animation, don't update the entire screen.
