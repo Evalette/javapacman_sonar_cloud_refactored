@@ -1151,6 +1151,7 @@ public class Board extends JPanel
       case 'D':
          g.drawImage(pacmanDownImage,player.x,player.y,Color.BLACK,null);
          break;
+      default: {}
     }
   }
 
