@@ -618,7 +618,7 @@ public class Board extends JPanel
       out.println("0");
     }
     catch(Exception e) {
-      throw new RuntimeException(e);
+      throw new RuntimeException(e.getMessage());
     }
     highScore=0;
     clearHighScores=true;
