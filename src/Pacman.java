@@ -275,9 +275,6 @@ public class Pacman implements MouseListener, KeyListener
       case KeyEvent.VK_DOWN:
        b.player.desiredDirection='D';
        break;
-      default: {
-
-      }
     }
 
     repaint();
