@@ -307,6 +307,7 @@ class Player extends Mover
          if ( isValidDest(x,y+ gridSize))
            y+= increment;
          break;
+      default:
     }
   }
 
@@ -410,9 +411,6 @@ class Ghost extends Mover
       case 'D':
          backwards='U';
          break;
-      default: {
-
-      }
     }
 
     char newDirection = backwards;
