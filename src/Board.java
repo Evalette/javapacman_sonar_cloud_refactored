@@ -212,9 +212,7 @@ class Player extends Mover
          if ( isValidDest(x,y+gridSize))
            y+= increment;
          break;
-      default: {
-
-      }
+      default:
     }
     currDirection = direction;
     frameCount ++;
