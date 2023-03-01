@@ -515,6 +515,7 @@ public class Board extends JPanel
   public static final String HIGH_SCORES_TXT = "highScores.txt";
   public static final String DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE = "DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: ";
   public static final String HIGH_SCORE = "\t High Score: ";
+  public static final String SCORE = "Score: ";
   /* Initialize the images*/
   /* For JAR File*/
   /*
@@ -1029,7 +1030,7 @@ public class Board extends JPanel
     if (demo)
       g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
-      g.drawString("Score: "+(currScore)+ HIGH_SCORE +highScore,20,10);
+      g.drawString(SCORE +(currScore)+ HIGH_SCORE +highScore,20,10);
   }
 
   private void killThePacMan(Graphics g, boolean oops) {
@@ -1171,7 +1172,7 @@ public class Board extends JPanel
     if (demo)
       g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
-      g.drawString("Score: "+(currScore)+ HIGH_SCORE +highScore,20,10);
+      g.drawString(SCORE +(currScore)+ HIGH_SCORE +highScore,20,10);
   }
 
   private void generateSecondFrame() {
@@ -1211,7 +1212,7 @@ public class Board extends JPanel
     if (demo)
       g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
-      g.drawString("Score: "+(currScore)+ HIGH_SCORE +highScore,20,10);
+      g.drawString(SCORE +(currScore)+ HIGH_SCORE +highScore,20,10);
     newGame++;
   }
 
