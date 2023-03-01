@@ -933,6 +933,9 @@ public class Board extends JPanel
         } else
           return;
         break;
+      default: {
+
+      }
     }
     
     /* Drawing optimization */
