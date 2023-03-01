@@ -613,6 +613,7 @@ public class Board extends JPanel
     try (Scanner sc = new Scanner(file)) {
       highScore = sc.nextInt();
     } catch (FileNotFoundException ignored) {
+      ignored.printStackTrace();
     }
   }
 
