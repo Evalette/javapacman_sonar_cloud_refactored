@@ -321,12 +321,24 @@ public class Pacman implements MouseListener, KeyListener
   }
   
  
-  public void mouseEntered(MouseEvent e){}
-  public void mouseExited(MouseEvent e){}
-  public void mouseReleased(MouseEvent e){}
-  public void mouseClicked(MouseEvent e){}
-  public void keyReleased(KeyEvent e){}
-  public void keyTyped(KeyEvent e){}
+  public void mouseEntered(MouseEvent e){
+    //does nothing because it is not used
+  }
+  public void mouseExited(MouseEvent e){
+    //does nothing because it is not used
+  }
+  public void mouseReleased(MouseEvent e){
+    //does nothing because it is not used
+  }
+  public void mouseClicked(MouseEvent e){
+    //does nothing because it is not used
+  }
+  public void keyReleased(KeyEvent e){
+    //does nothing because it is not used
+  }
+  public void keyTyped(KeyEvent e){
+    //does nothing because it is not used
+  }
   
   /* Main function simply creates a new pacman instance*/
   public static void main(String [] args)
