@@ -513,6 +513,7 @@ class Ghost extends Mover
 public class Board extends JPanel
 {
   public static final String HIGH_SCORES_TXT = "highScores.txt";
+  public static final String DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE = "DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: ";
   /* Initialize the images*/
   /* For JAR File*/
   /*
@@ -1025,7 +1026,7 @@ public class Board extends JPanel
     g.setColor(Color.YELLOW);
     g.setFont(menuFont);
     if (demo)
-      g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
+      g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
       g.drawString("Score: "+(currScore)+"\t High Score: "+highScore,20,10);
   }
@@ -1167,7 +1168,7 @@ public class Board extends JPanel
     g.setFont(menuFont);
     clearHighScores= false;
     if (demo)
-      g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
+      g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
       g.drawString("Score: "+(currScore)+"\t High Score: "+highScore,20,10);
   }
@@ -1207,7 +1208,7 @@ public class Board extends JPanel
     g.setColor(Color.YELLOW);
     g.setFont(menuFont);
     if (demo)
-      g.drawString("DEMO MODE PRESS ANY KEY TO START A GAME\t High Score: "+highScore,20,10);
+      g.drawString(DEMO_MODE_PRESS_ANY_KEY_TO_START_A_GAME_HIGH_SCORE +highScore,20,10);
     else
       g.drawString("Score: "+(currScore)+"\t High Score: "+highScore,20,10);
     newGame++;
