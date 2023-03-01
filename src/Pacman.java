@@ -84,7 +84,7 @@ public class Pacman implements MouseListener, KeyListener
   public void stepFrame(boolean newGame)
   {
     /* If we aren't on a special screen than the timers can be set to -1 to disable them */
-    if (!b.titleScreen && !b.winScreen && !b.overScreen)
+    if (notASpecialScreen())
     {
       timer = -1;
       titleTimer = -1;
@@ -99,25 +99,13 @@ public class Pacman implements MouseListener, KeyListener
 
     /* New can either be specified by the New parameter in stepFrame function call or by the state
        of b.New.  Update New accordingly */ 
-    newGame = newGame || (b.newGame !=0) ;
+    newGame = isNewGame(newGame);
 
     /* If this is the title screen, make sure to only stay on the title screen for 5 seconds.
        If after 5 seconds the user hasn't started a game, start up demo mode */
     if (b.titleScreen)
     {
-      if (titleTimer == -1)
-      {
-        titleTimer = System.currentTimeMillis();
-      }
-
-      long currTime = System.currentTimeMillis();
-      if (currTime - titleTimer >= 5000)
-      {
-        b.titleScreen = false;
-        b.demo = true;
-        titleTimer = -1;
-      }
-      b.repaint();
+      handleAutoTitleScreen();
       return;
     }
  
@@ -125,20 +113,7 @@ public class Pacman implements MouseListener, KeyListener
        If after 5 seconds the user hasn't pressed a key, go to title screen */
     else if (b.winScreen || b.overScreen)
     {
-      if (timer == -1)
-      {
-        timer = System.currentTimeMillis();
-      }
-
-      long currTime = System.currentTimeMillis();
-      if (currTime - timer >= 5000)
-      {
-        b.winScreen = false;
-        b.overScreen = false;
-        b.titleScreen = true;
-        timer = -1;
-      }
-      b.repaint();
+      handleAutoScreenChange();
       return;
     }
 
@@ -148,14 +123,7 @@ public class Pacman implements MouseListener, KeyListener
     {
       /* The pacman player has two functions, demoMove if we're in demo mode and move if we're in
          user playable mode.  Call the appropriate one here */
-      if (b.demo)
-      {
-        b.player.demoMove();
-      }
-      else
-      {
-        b.player.move();
-      }
+      movePlayer();
 
       /* Also move the ghosts, and update the pellet states */
       b.ghost1.move(); 
@@ -172,44 +140,105 @@ public class Pacman implements MouseListener, KeyListener
     /* We either have a new game or the user has died, either way we have to reset the board */
     if (b.stopped || newGame)
     {
-      /*Temporarily stop advancing frames */
-      frameTimer.stop();
-
-      /* If user is dying ... */
-      while (b.dying >0)
-      {
-        /* Play dying animation. */
-        stepFrame(false);
-      }
-
-      /* Move all game elements back to starting positions and orientations */
-      b.player.currDirection='L';
-      b.player.direction='L';
-      b.player.desiredDirection='L';
-      b.player.x = 200;
-      b.player.y = 300;
-      b.ghost1.x = 180;
-      b.ghost1.y = 180;
-      b.ghost2.x = 200;
-      b.ghost2.y = 180;
-      b.ghost3.x = 220;
-      b.ghost3.y = 180;
-      b.ghost4.x = 220;
-      b.ghost4.y = 180;
-
-      /* Advance a frame to display main state*/
-      b.repaint(0,0,600,600);
-
-      /*Start advancing frames once again*/
-      b.stopped=false;
-      frameTimer.start();
+      handleNewGameOrDeadUser();
     }
     /* Otherwise we're in a normal state, advance one frame*/
     else
     {
       repaint(); 
     }
-  }  
+  }
+
+  private void handleNewGameOrDeadUser() {
+    /*Temporarily stop advancing frames */
+    frameTimer.stop();
+
+    /* If user is dying ... */
+    while (b.dying >0)
+    {
+      /* Play dying animation. */
+      stepFrame(false);
+    }
+
+    /* Move all game elements back to starting positions and orientations */
+    b.player.currDirection='L';
+    b.player.direction='L';
+    b.player.desiredDirection='L';
+    b.player.x = 200;
+    b.player.y = 300;
+    b.ghost1.x = 180;
+    b.ghost1.y = 180;
+    b.ghost2.x = 200;
+    b.ghost2.y = 180;
+    b.ghost3.x = 220;
+    b.ghost3.y = 180;
+    b.ghost4.x = 220;
+    b.ghost4.y = 180;
+
+    /* Advance a frame to display main state*/
+    b.repaint(0,0,600,600);
+
+    /*Start advancing frames once again*/
+    b.stopped=false;
+    frameTimer.start();
+  }
+
+  private void handleAutoTitleScreen() {
+    setTitleTimer();
+
+    long currTime = System.currentTimeMillis();
+    if (currTime - titleTimer >= 5000)
+    {
+      b.titleScreen = false;
+      b.demo = true;
+      titleTimer = -1;
+    }
+    b.repaint();
+  }
+
+  private void handleAutoScreenChange() {
+    if (timer == -1)
+    {
+      timer = System.currentTimeMillis();
+    }
+
+    long currTime = System.currentTimeMillis();
+    if (currTime - timer >= 5000)
+    {
+      b.winScreen = false;
+      b.overScreen = false;
+      b.titleScreen = true;
+      timer = -1;
+    }
+    b.repaint();
+    return;
+  }
+
+  private void movePlayer() {
+    if (b.demo)
+    {
+      b.player.demoMove();
+    }
+    else
+    {
+      b.player.move();
+    }
+  }
+
+  private void setTitleTimer() {
+    if (titleTimer == -1)
+    {
+      titleTimer = System.currentTimeMillis();
+    }
+  }
+
+  private boolean isNewGame(boolean newGame) {
+    return newGame || (b.newGame != 0);
+  }
+
+  private boolean notASpecialScreen() {
+    return !b.titleScreen && !b.winScreen && !b.overScreen;
+  }
 
   /* Handles user key presses*/
   public void keyPressed(KeyEvent e) 
