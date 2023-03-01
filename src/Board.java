@@ -360,7 +360,6 @@ class Ghost extends Mover
   /* The pellet the ghost was last on top of */
   int lastPelletX;
   int lastPelletY;
-  private int random;
   private Random r = new Random();
 
   /*Constructor places ghost and updates states*/
@@ -441,7 +440,7 @@ class Ghost extends Mover
       
       /* Randomly choose a direction */
 
-      random = (r.nextInt()*4) + 1;
+      int random = (r.nextInt() * 4) + 1;
       if (random == 1)
       {
         newDirection = 'L';
@@ -975,7 +974,7 @@ public class Board extends JPanel
     }
 
     /* Replace pellets that have been run over by ghosts */
-    ReplacePelletsThatHaveBeenRunOverByGhosts(g);
+    replacePelletsThatHaveBeenRunOverByGhosts(g);
 
     /*Draw the ghosts */
     drawTheGhosts(g);
@@ -1088,7 +1087,7 @@ public class Board extends JPanel
     }
   }
 
-  private void ReplacePelletsThatHaveBeenRunOverByGhosts(Graphics g) {
+  private void replacePelletsThatHaveBeenRunOverByGhosts(Graphics g) {
     if ( pellets[ghost1.lastPelletX][ghost1.lastPelletY])
       fillPellet(ghost1.lastPelletX,ghost1.lastPelletY, g);
     if ( pellets[ghost2.lastPelletX][ghost2.lastPelletY])
@@ -1261,7 +1260,7 @@ public class Board extends JPanel
         }
       }
     }
-    return;
+
   }
 
   private void killPacman(Graphics g) {

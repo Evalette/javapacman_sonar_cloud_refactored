@@ -211,7 +211,6 @@ public class Pacman implements MouseListener, KeyListener
       timer = -1;
     }
     b.repaint();
-    return;
   }
 
   private void movePlayer() {
