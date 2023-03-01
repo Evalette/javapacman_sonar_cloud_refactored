@@ -34,7 +34,9 @@ public class GameSounds{
             death = AudioSystem.getClip();
             death.open(audioIn);
 
-        }catch(Exception e){}
+        }catch(Exception ignored){
+            ignored.printStackTrace();
+        }
     }
     
     /* Play pacman eating sound */
