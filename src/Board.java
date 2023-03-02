@@ -178,7 +178,7 @@ class Player extends Mover
     lastY=y;
     if (isChoiceDest())
     {
-      direction = newDirection();
+       direction = newDirection();
     }
     switch(direction)
     {
