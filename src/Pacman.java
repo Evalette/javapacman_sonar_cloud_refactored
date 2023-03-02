@@ -236,6 +236,7 @@ public class Pacman implements MouseListener, KeyListener
   /* Handles user key presses*/
   public void keyPressed(KeyEvent e) 
   {
+    System.out.println("key pressed");
     /* Pressing a key in the title screen starts a game */
     if (b.titleScreen)
     {
@@ -283,6 +284,7 @@ public class Pacman implements MouseListener, KeyListener
 
   /* This function detects user clicks on the menu items on the bottom of the screen */
   public void mousePressed(MouseEvent e){
+    System.out.println("mouse pressed");
     if (b.titleScreen || b.winScreen || b.overScreen)
     {
       /* If we aren't in the game where a menu is showing, ignore clicks */

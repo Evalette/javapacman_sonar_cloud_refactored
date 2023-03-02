@@ -127,7 +127,7 @@ class Player extends Mover
       default:
     }
      char newDirection = backwards;
-     while (newDirection == backwards || !isValidDest(lookX,lookY))
+     while (((Character) newDirection).equals(backwards) || !isValidDest(lookX,lookY))
      {
        if (set.size()==3)
        {
@@ -136,7 +136,7 @@ class Player extends Mover
        }
        lookX=x;
        lookY=y;
-       int random = (r.nextInt() * 4) + 1;
+       int random = (int) (Math.random() * 4) + 1;
        if (random == 1)
        {
          newDirection = 'L';
@@ -157,7 +157,7 @@ class Player extends Mover
          newDirection = 'D';
          lookY+=gridSize;
        }
-       if (((Character) newDirection).equals(backwards))
+       if (!((Character) newDirection).equals(backwards))
        {
          set.add(newDirection);
        }
@@ -314,10 +314,10 @@ class Player extends Mover
   private boolean inTheCenterOfAGrid() {
     return x % 20 == 0 && y % 20 == 0 ||
             /* Or if we're reversing*/
-            (desiredDirection == 'L' && currDirection == 'R') ||
-            (desiredDirection == 'R' && currDirection == 'L') ||
-            (desiredDirection == 'U' && currDirection == 'D') ||
-            (desiredDirection == 'D' && currDirection == 'U');
+            (((Character) desiredDirection).equals('L') && ((Character) currDirection).equals('R')) ||
+            (((Character) desiredDirection).equals('R') && ((Character) currDirection).equals('L')) ||
+            (((Character) desiredDirection).equals('U') && ((Character) currDirection).equals('D')) ||
+            (((Character) desiredDirection).equals('D') && ((Character) currDirection).equals('U'));
   }
 
   /* Update what pellet the pacman is on top of */
@@ -416,7 +416,7 @@ class Ghost extends Mover
 
     char newDirection = backwards;
     /* While we still haven't found a valid direction */
-    while (newDirection == backwards || !isValidDest(lookX,lookY))
+    while (((Character) newDirection).equals(backwards) || !isValidDest(lookX,lookY))
     {
       /* If we've tried every location, turn around and break the loop */
       if (set.size()==3)
@@ -430,7 +430,7 @@ class Ghost extends Mover
       
       /* Randomly choose a direction */
 
-      int random = (r.nextInt() * 4) + 1;
+      int random = (int) (Math.random() * 4) + 1;
       switch (random) {
         case 1:
           newDirection = 'L';
@@ -450,7 +450,7 @@ class Ghost extends Mover
           break;
         default:
       }
-      if (((Character) newDirection).equals(backwards))
+      if (!((Character) newDirection).equals(backwards))
       {
         set.add(newDirection);
       }
@@ -572,7 +572,7 @@ public class Board extends JPanel
   Font menuFont = new Font("Monospaced",Font.BOLD, 12);
 
   /* Constructor initializes state flags etc.*/
-  public Board() 
+  public Board()
   {
     initHighScores();
     sounds = new GameSounds();
@@ -848,7 +848,7 @@ public class Board extends JPanel
       /* Kill the pacman */
       killPacman(g);
 
-      runDeathAnnimation();
+      runDeathAnimation();
       return;
     }
 
@@ -1198,7 +1198,7 @@ public class Board extends JPanel
   }
 
 
-  private void runDeathAnnimation() {
+  private void runDeathAnimation() {
     /* Take .1 seconds on each frame of death, and then take 2 seconds
        for the final frame to allow for the sound effect to end */
     long currTime = System.currentTimeMillis();
